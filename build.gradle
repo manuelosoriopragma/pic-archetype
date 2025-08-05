@@ -36,3 +36,8 @@ sonar {
 }
 
 apply from: './main.gradle'
+
+wrapper {
+    gradleVersion = '8.14.3'
+    distributionSha256Sum = 'bd71102213493060956ec229d946beee57158dbd89d0e62b91bca0fa2c5f3531'
+}
