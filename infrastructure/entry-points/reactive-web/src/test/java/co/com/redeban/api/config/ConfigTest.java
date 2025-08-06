@@ -2,6 +2,7 @@ package co.com.redeban.api.config;
 
 import co.com.redeban.api.Handler;
 import co.com.redeban.api.RouterRest;
+import co.com.redeban.api.helper.ValidationUtil;
 import co.com.redeban.usecase.example.ExampleUseCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-@ContextConfiguration(classes = {RouterRest.class, Handler.class, ExampleUseCase.class})
+@ContextConfiguration(classes = {RouterRest.class, Handler.class, ExampleUseCase.class, AppConfig.class
+        , ValidationUtil.class})
 @WebFluxTest
 @Import({CorsConfig.class, SecurityHeadersConfig.class})
 class ConfigTest {
@@ -20,8 +22,8 @@ class ConfigTest {
 
     @Test
     void corsConfigurationShouldAllowOrigins() {
-        webTestClient.get()
-                .uri("/api/example/hello")
+        webTestClient.post()
+                .uri("/example")
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().valueEquals("Content-Security-Policy",

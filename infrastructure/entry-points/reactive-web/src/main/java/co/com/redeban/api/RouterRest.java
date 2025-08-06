@@ -19,10 +19,10 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class RouterRest {
     @Bean
     @RouterOperations({
-            @RouterOperation(path = "/api/example/hello", beanClass = Handler.class, beanMethod = "listenGETExampleHello")
+            @RouterOperation(path = "/demo/example", beanClass = Handler.class, beanMethod = "listenPOSTExample")
     })
     public RouterFunction<ServerResponse> routerFunction(Handler handler) {
-        return route(GET("/api/example/hello"), handler::listenGETExampleHello);
+        return route(POST("/example"), handler::listenPOSTExample);
 
     }
 }

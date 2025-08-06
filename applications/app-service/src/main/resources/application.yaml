@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: "pic-archetype"
+  webflux:
+    base-path: /demo
   devtools:
     add-properties: false
   h2:
