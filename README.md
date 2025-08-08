@@ -9,7 +9,7 @@ Ajustelo conforme a su propio flujo de trabajo.
 ## Requisitos de sistema
 Antes de instalar el repositorio asegurate de tener las siguientes herramientas para el desarrollo de tu aplicación:
 * [Gradle version 8.8 o posterior](https://gradle.org/install/) 
-* [JDK version 21(aun puede ajustarse para version 17)](https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html)
+* [JDK version 21](https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html)
 * [Git](https://git-scm.com/)
 
 ## Instalación manual y configuración del arquetipo
@@ -17,56 +17,56 @@ Antes de instalar el repositorio asegurate de tener las siguientes herramientas 
 1. Clonar el repositorio e ingresar a la carpeta
 
 ```bash
-    git clone https://github.com/manuelosoriopragma/pic-archetype.git <nombre_carpeta>
-    cd <nombre_capeta>
+git clone https://github.com/manuelosoriopragma/pic-archetype.git <nombre_carpeta>
+cd <nombre_capeta>
 ```
 2. Eliminar el .git del arquetipo
 
 ```bash
-    rm -rf .git
+rm -rf .git
 ```
 ```powershell
-    Remove-Item -Path ".git" -Recurse -Force
+Remove-Item -Path ".git" -Recurse -Force
 ```
 3. Inicializar nuevo repositorio
 
 ```bash
-    git init
-    git fetch
+git init --initial-branch=main
+git fetch
 ```
 
 4. Agregar nuevo repositorio de trabajo
 
 ```bash
-    git remote add origin <url>
+git remote add origin <url>
 ```
 5. Ajustar la propiedad rootProject.name en el archivo settings.gradle
 
 ```
-    pluginManagement {
-        repositories {
-            //mavenLocal()
-            //maven { url = '...' }
-            gradlePluginPortal()
-        }
+pluginManagement {
+    repositories {
+        //mavenLocal()
+        //maven { url = '...' }
+        gradlePluginPortal()
     }
-    
-    buildCache {
-        local {
-            directory = new File(rootDir, 'build-cache')
-        }
+}
+
+buildCache {
+    local {
+        directory = new File(rootDir, 'build-cache')
     }
-    
-    rootProject.name = '<nombre_proyecto>'
-    
-    include ':app-service'
-    include ':model'
-    include ':usecase'
-    project(':app-service').projectDir = file('./applications/app-service')
-    project(':model').projectDir = file('./domain/model')
-    project(':usecase').projectDir = file('./domain/usecase')
-    include ':reactive-web'
-    project(':reactive-web').projectDir = file('./infrastructure/entry-points/reactive-web')
+}
+
+rootProject.name = '<nombre_proyecto>'
+
+include ':app-service'
+include ':model'
+include ':usecase'
+project(':app-service').projectDir = file('./applications/app-service')
+project(':model').projectDir = file('./domain/model')
+project(':usecase').projectDir = file('./domain/usecase')
+include ':reactive-web'
+project(':reactive-web').projectDir = file('./infrastructure/entry-points/reactive-web')
 ```
 
 6. Ajustar archivo applications/app-service/src/main/resources/application.yaml
@@ -75,31 +75,31 @@ Antes de instalar el repositorio asegurate de tener las siguientes herramientas 
    * la ruta base por defecto (spring.application.webflux.base-path)
 
 ```yaml
-    server:
-    port: <puerto>
-    spring:
-      application:
-        name: "<nombre_proyecto>"
-      webflux:
-        base-path: /<ruta_base>
+server:
+port: <puerto>
+spring:
+  application:
+    name: "<nombre_proyecto>"
+  webflux:
+    base-path: /<ruta_base>
 ```
 7. Si lo desea tambien puede ajustar el nombre del servicio en la configuración 
 swagger ubicada en infrastructure/entry-points/reactive-web/src/main/java/co/com/redeban/api/config/OpenApiConfig.java
 
 ```java
-    @Configuration
-    @OpenAPIDefinition(
-        info = @Info(
-                title = "<nombre_proyecto>", //set this line
-                version = "<version>", //set this line
-                summary = "<resumen_proyecto>" //set this line
-        ),
-        servers = {
-                @Server(url = "http://localhost:8080", description = "local server")
-        }
-    )
-    public class OpenApiConfig {
+@Configuration
+@OpenAPIDefinition(
+    info = @Info(
+            title = "<nombre_proyecto>", //set this line
+            version = "<version>", //set this line
+            summary = "<resumen_proyecto>" //set this line
+    ),
+    servers = {
+            @Server(url = "http://localhost:8080", description = "local server")
     }
+)
+public class OpenApiConfig {
+}
 ```
 
 ## Ejecución Local
@@ -107,27 +107,27 @@ swagger ubicada en infrastructure/entry-points/reactive-web/src/main/java/co/com
 En la consola entra a la carpeta del proyecto
 
 ```bash
-    cd pic-archetype
+cd pic-archetype
 ```
 
 cargar el gradle wrapper
 
 ```bash
-    gradle wrapper
+gradle wrapper
 ```
 
 limpiar el proyecto
 ```bash
-    ./gradlew clean
+./gradlew clean
 ```
 ejecución del proyecto
 ```bash
-    ./gradlew bootRun
+./gradlew bootRun
 ```
 ## Tests
 Para ejecutar los test, ejecuta el siguiente comando en la terminal
 ```bash
-    ./gradlew test
+./gradlew test
 ```
 
 ## Explicación del proyecto
