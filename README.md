@@ -83,7 +83,7 @@ Antes de instalar el repositorio asegurate de tener las siguientes herramientas 
       webflux:
         base-path: /<ruta_base>
 ```
-7. Si lo desea tambien puede ajustar el nombre del servico en la configuración 
+7. Si lo desea tambien puede ajustar el nombre del servicio en la configuración 
 swagger ubicada en infrastructure/entry-points/reactive-web/src/main/java/co/com/redeban/api/config/OpenApiConfig.java
 
 ```java
@@ -224,7 +224,8 @@ el proyecto tendrá la siguiente estrucutura:
 │   │       │                   └── model
 │   │       │                       ├── config
 │   │       │                       │   ├── ErrorCode.java
-│   │       │                       │   └── ErrorDictionary.java
+│   │       │                       │   ├── ErrorDictionary.java
+│   │       │                       │   └── RedebanException.java
 │   │       │                       └── example
 │   │       │                           ├── Example.java
 │   │       │                           └── gateways
@@ -256,11 +257,9 @@ el proyecto tendrá la siguiente estrucutura:
 │                           └── redeban
 │                               └── usecase
 │                                   ├── errordictionary
+│                                   │   └── ErrorDictionaryUseCaseTest.java
 │                                   └── example
-├── gradle
-│   └── wrapper
-│       ├── gradle-wrapper.jar
-│       └── gradle-wrapper.properties
+│                                       └── ExampleUseCaseTest.java
 ├── gradle.properties
 ├── gradlew
 ├── gradlew.bat
@@ -308,6 +307,6 @@ el proyecto tendrá la siguiente estrucutura:
 ```
 
 ## Recursos:
-Cosulte la [la documentación del plugin Scaffold Clean Architecture](https://bancolombia.github.io/scaffold-clean-architecture/docs/intro), para mas información
-sobre la creación y eliminación de nuevos componentes
+Para más infomración cosulte la la documentación del [plugin Scaffold Clean Architecture](https://bancolombia.github.io/scaffold-clean-architecture/docs/intro), 
+sobre la creación y eliminación de nuevos componentes.
 
