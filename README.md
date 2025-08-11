@@ -1,4 +1,4 @@
-# Arquetipo Java - Arquitectura limplia - PIC REDEBAN
+# Arquetipo Java - Arquitectura limpia - PIC REDEBAN
 
 Aplicación hecha con el plugin de gradle Scaffold Clean Architecture para 
 la creción de distintos servicios para el proyecto PIC de redeban. Este
@@ -307,6 +307,6 @@ el proyecto tendrá la siguiente estrucutura:
 ```
 
 ## Recursos:
-Para más infomración cosulte la la documentación del [plugin Scaffold Clean Architecture](https://bancolombia.github.io/scaffold-clean-architecture/docs/intro), 
+Para más información cosulte la la documentación del [plugin Scaffold Clean Architecture](https://bancolombia.github.io/scaffold-clean-architecture/docs/intro), 
 sobre la creación y eliminación de nuevos componentes.
 
