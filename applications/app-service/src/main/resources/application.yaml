@@ -7,17 +7,9 @@ spring:
     base-path: /demo
   devtools:
     add-properties: false
-  h2:
-    console:
-      enabled: true
-      path: "/h2"
   profiles:
     include: null
 management:
-  endpoints:
-    web:
-      exposure:
-        include: "health,prometheus"
   endpoint:
     health:
       probes:
