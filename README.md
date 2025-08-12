@@ -71,7 +71,7 @@ project(':reactive-web').projectDir = file('./infrastructure/entry-points/reacti
 
 6. Ajustar archivo applications/app-service/src/main/resources/application.yaml
    * El puerto (server.port)
-   * El nombre del servcicio (spring.application.name)
+   * El nombre del servcio (spring.application.name)
    * la ruta base por defecto (spring.application.webflux.base-path)
 
 ```yaml
