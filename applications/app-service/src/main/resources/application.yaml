@@ -2,7 +2,7 @@ server:
   port: ${PORT}
 spring:
   application:
-    name: ${APPLICATION_NAME}
+    name: ${APP_NAME}
   webflux:
     base-path: ${BASE_PATH}
   devtools:

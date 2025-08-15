@@ -1,5 +1,9 @@
 package co.com.redeban.model.example;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
 
 
 @Getter
